@@ -1,0 +1,235 @@
+#:kivy 2.3.0
+<RincianPage>:
+    name:  'rincian'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+
+        # Bagian Header dengan Judul "RINCIAN PESANAN"
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 60
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.6, 0.86, 1  # Biru Lembut
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10]  # Rounded corners untuk header
+
+            Button:
+                text: '<'
+                size_hint_x: None
+                width: 50
+                background_normal: ''
+                background_color: (0.2, 0.6, 0.86, 1)
+                color: (1, 1, 1, 1)
+
+            Label:
+                text: 'RINCIAN PESANAN'
+                font_size: '24sp'
+                color: (1, 1, 1, 1)
+                bold: True
+                halign: 'center'
+                valign: 'middle'
+
+        # Informasi Pelanggan
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 100
+            spacing: 5
+            canvas.before:
+                Color:
+                    rgba: 0.95, 0.95, 0.95, 1  # Latar belakang abu-abu lembut
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10]  # Rounded corner
+
+            BoxLayout:
+                orientation: 'vertical'
+                padding: [0, 10]
+                spacing: 5
+                pos_hint:{'center_y': 0.5}
+
+                Label:
+                    text: 'Tari Alok'
+                    font_size: '20sp'
+                    bold: True
+                    color: (0, 0, 0, 1)
+
+                Label:
+                    text: 'No. Handphone'
+                    font_size: '14sp'
+                    color: (0.4, 0.4, 0.4, 1)
+
+                Label:
+                    text: '+6283128566649'
+                    font_size: '16sp'
+                    color: (0, 0, 0, 1)
+
+        # Nomor Nota dan Tombol Aksi (Whatsapp, Print)
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 50
+            spacing: 10
+            padding: [0, 0, 10, 0]  # Padding untuk spasi kanan
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1  # Background putih
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+
+            Label:
+                text: 'NOTA-5262.210924.5'
+                font_size: '14sp'
+                halign: 'right'
+                valign: 'middle'
+                color: (0.5, 0.5, 0.5, 1)
+                size_hint_x: 0.7
+
+            BoxLayout:
+                size_hint_x: 0.3
+                spacing: 10
+
+                Button:
+                    text: '📞'
+                    size_hint: None, None
+                    size: 40, 40
+                    background_normal: ''
+                    background_color: (0.2, 0.8, 0.4, 1)  # Warna hijau untuk tombol Whatsapp
+                    color: (1, 1, 1, 1)
+
+                Button:
+                    text: '🖨️'
+                    size_hint: None, None
+                    size: 40, 40
+                    background_normal: ''
+                    background_color: (0.2, 0.6, 0.86, 1)  # Warna biru untuk tombol Print
+                    color: (1, 1, 1, 1)
+
+        # Detail Pesanan
+        GridLayout:
+            cols: 2
+            padding: 10
+            spacing: 10
+
+            Label:
+                text: 'Dibuat Oleh:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: 'Farhan'
+                color: (0, 0, 0, 1)
+
+            Label:
+                text: 'Status:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: 'Siap diambil'
+                color: (0, 0, 0, 1)
+
+            Label:
+                text: 'Tanggal Masuk:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: '21/09/2024 - 20:00'
+                color: (0, 0, 0, 1)
+
+            Label:
+                text: 'Estimasi Selesai:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: '23/09/2024 - 07:00'
+                color: (0, 0, 0, 1)
+
+            Label:
+                text: 'Catatan:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: '-'
+                color: (0, 0, 0, 1)
+
+            Label:
+                text: 'Parfum:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: 'Iya'
+                color: (0, 0, 0, 1)
+
+            Label:
+                text: 'Antar - Jemput:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: 'Tidak'
+                color: (0, 0, 0, 1)
+
+            Label:
+                text: 'Status Pembayaran:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: 'Belum Bayar'
+                color: (0.9, 0.1, 0.1, 1)  # Warna merah untuk status belum bayar
+
+        # Total Bayar dan Rincian
+        GridLayout:
+            cols: 2
+            padding: 10
+            spacing: 10
+            size_hint_y: None
+            height: 100
+
+            Label:
+                text: 'Total Layanan:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: 'Rp 25.000'
+                color: (0, 0, 0, 1)
+
+            Label:
+                text: 'Antar - Jemput:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: 'Rp 0'
+                color: (0, 0, 0, 1)
+
+            Label:
+                text: 'Diskon:'
+                color: (0.2, 0.2, 0.2, 1)
+            Label:
+                text: '-Rp 0'
+                color: (0, 0, 0, 1)
+
+            Label:
+                text: '[b]Total Bayar:[/b]'
+                markup: True
+                font_size: '18sp'
+                bold: True
+                color: (0, 0, 0, 1)
+            Label:
+                text: '[b]Rp 25.000[/b]'
+                markup: True
+                font_size: '18sp'
+                bold: True
+                color: (0, 0, 0, 1)
+
+        # Tombol Selesaikan Pesanan
+        Button:
+            text: 'Selesaikan Pesanan'
+            size_hint: None, None
+            height: 52
+            width: 217
+            background_normal: ''
+            background_color: (0.2, 0.6, 0.86, 1)  # Biru untuk tombol
+            color: (1, 1, 1, 1)
+            pos_hint: {'center_x': 0.5}
+            on_press: root.backtoHome()
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [25]  # Membulatkan sudut tombol

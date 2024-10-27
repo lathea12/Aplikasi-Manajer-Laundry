@@ -1,0 +1,97 @@
+#:kivy 2.3.0
+<LoginPage>:
+    name: 'login'
+    BoxLayout:
+        orientation: 'vertical'
+
+        # Bagian atas (Background biru dan judul aplikasi)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, 0.3
+            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+            canvas.before:
+                Color:
+                    rgba: 0, 0.5, 1, 1  # Blue background
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20]  # Rounded corners
+            
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: None, None
+                pos_hint: {'center_x': 0.3}
+            
+                Image:
+                    source: "assets/machine.png"
+                    size_hint: None, None
+                    pos_hint: {'center_y': 0.1}
+            
+                Label:
+                    text: "Maa Laundry"
+                    font_size: "30"
+                    color: "black"
+                    size_hint: None, None
+                    size: self.texture_size  # Atur ukuran label sesuai teks
+                    pos_hint: {'center_y': 0.1}
+                    
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: None, None
+                pos_hint: {'center_x': 0.5}
+
+                Label:
+                    text: "Selamat Datang\nSenang Melihat Anda Kembali!"
+                    font_size: "30"
+                    halign: "center"
+                    color: "black"
+                    size_hint: 1, None  # Memungkinkan label untuk mengisi lebar
+                    height: self.texture_size[1]  # Tinggi sesuai dengan ukuran teks
+                    pos_hint: {'center_x': 0.5, 'center_y': -1}  # Pusatkan label di tengah
+
+        # Bagian input (Username dan Password)
+        BoxLayout:
+            orientation:'vertical'
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: 0.8, 0.4
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                padding: 10
+                spacing: 10
+                
+                TextInput:
+                    id: username
+                    hint_text: "Username"
+                    height: 40
+                    size_hint_y: None
+                    multiline: False
+                    font_size: 15
+                    padding: [10, 10]
+                    background_normal: ''
+                    background_color: "white"  # Change to white for better visibility
+    
+                TextInput:
+                    id: password
+                    hint_text: "Password"
+                    height: 40
+                    size_hint_y: None
+                    multiline: False
+                    font_size: 15
+                    padding: [10, 10]
+                    password: True  # Enable password masking
+                    background_normal: ''
+                    background_color: "white"
+        
+                # Tombol Login
+                Button:
+                    text: "Login"
+                    size_hint: None, None
+                    height: 50
+                    width: 217
+                    background_normal: ''
+                    background_color: "blue"  # Blue button color
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+                    on_release: root.login(username.text, password.text)
+                    # Panggil fungsi login, yang di dalam kurung untuk memastikan bahwa username dan pw benar
+            Widget:
+                size_hint_y: 0.1

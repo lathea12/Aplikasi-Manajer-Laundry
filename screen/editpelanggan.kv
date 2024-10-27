@@ -1,0 +1,83 @@
+#:kivy 2.3.0
+<EditDataPelangganPage>:
+    name: 'edit_pelanggan'
+    BoxLayout:
+        orientation:'vertical'
+        BoxLayout:
+            orientation:'vertical'
+            size_hint: 1, 0.15
+            spacing: 10
+            BoxLayout:
+                size_hint: 1, 0.7
+                canvas.before:
+                    Color:
+                        rgba: 0.6, 0.8, 1, 1  # Blue background color
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                Button:
+                    text: "<"
+                    size_hint_x: 0.15
+                    background_color: 0.6, 0.8, 1, 1  # Makes the button blue
+                    color: 1, 1, 1, 1  # White text
+                    bold: True
+                    font_size: 15
+                    on_release: root.manager.current=('home')
+
+                Label:
+                    text: "EDIT DATA PELANGGAN"
+                    font_size: '20sp'
+                    bold: True
+                    color: 0, 0, 0, 1  # Black text color
+                    halign: 'center'
+                    valign: 'middle'
+                    size_hint_x: 1
+                    text_size: self.size
+                
+        # Bagian ubah username dan nomer telepon
+        BoxLayout:
+            orientation:'vertical'
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: 0.8, 0.4
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                padding: 10
+                spacing: 10
+                
+                TextInput:
+                    id: username
+                    hint_text: "Username"
+                    height: 40
+                    size_hint_y: None
+                    multiline: False
+                    font_size: 15
+                    padding: [10, 10]
+                    background_normal: ''
+                    background_color: "white"  # Change to white for better visibility
+    
+                TextInput:
+                    id: nomer
+                    hint_text: "Nomer Telepon"
+                    height: 40
+                    size_hint_y: None
+                    multiline: False
+                    font_size: 15
+                    padding: [10, 10]
+                    background_normal: ''
+                    background_color: "white"
+            
+            BoxLayout:
+                orientation:'vertical'
+                # Tombol Simpan
+                Button:
+                    text: "SIMPAN"
+                    size_hint: None, None
+                    height: 50
+                    width: 217
+                    background_normal: ''
+                    background_color: 0.6, 0.8, 1, 1  # Makes the button blue
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+                    on_press:root.manager.current=("home")
+            Widget:
+                size_hint_y: 0.1

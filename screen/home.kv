@@ -1,0 +1,171 @@
+#:kivy 2.3.0
+<HomePage>:
+    name: "home"
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 20
+
+        # Header informasi Laundry
+        BoxLayout:
+            size_hint_y: None
+            height: 100
+            spacing: 10
+            padding: [10, 5, 10, 5]
+            canvas.before:
+                Color:
+                    rgba: .2, .6, .8, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Image:
+                source: 'assets/machine.png'
+                size_hint_x: None
+                width: 30
+
+            GridLayout:
+                cols: 1
+                Label:
+                    text: 'MaaLaundry'
+                    font_size: 22
+                    bold: True
+                    color: 1, 1, 1, 1  # White text
+                Label:
+                    text: 'Serengan'
+                    font_size: 16
+                    color: 1, 1, 1, 1  # White text
+                Label:
+                    text: '085156846935'
+                    font_size: 16
+                    color: 1, 1, 1, 1  # White text
+
+        # Informasi kas masuk dan keluar
+        GridLayout:
+            cols: 2
+            size_hint_y: None
+            height: 60
+            canvas.before:
+                Color:
+                    rgba: .1, .4, .6, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: 'Kas Masuk\nRp 105.000'
+                font_size: 18
+                bold: True
+                halign: 'center'
+                color: 1, 1, 1, 1  # White text
+            Label:
+                text: 'Kas Keluar\nRp 10.000'
+                font_size: 18
+                bold: True
+                halign: 'center'
+                color: 1, 1, 1, 1  # White text
+
+        # Menu Layanan
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [10, 10, 10, 10]
+            spacing: 10
+
+            Button:
+                text: 'Tambah Pesanan\nBuat Pesanan Baru'
+                size_hint_y: None
+                height: 60
+                halign: 'center'
+                font_size: 16
+                background_color: .2, .6, .8, 1
+                background_normal: ''
+                on_release:root.manager.current=("addpesanan")
+            
+            # Button:
+            #     text: 'Cari Pesanan\nPencarian Pesanan'
+            #     size_hint_y: None
+            #     height: 60
+            #     halign: 'center'
+            #     font_size: 16
+            #     background_color: .2, .6, .8, 1
+            #     background_normal: ''
+            #     on_release:root.manager.current=("addpesanan")
+
+            Button:
+                text: 'Data Pelanggan\nKelola Data Pelanggan'
+                size_hint_y: None
+                height: 60
+                halign: 'center'
+                font_size: 16
+                background_color: .2, .6, .8, 1
+                background_normal: ''
+                on_release:root.manager.current=("datapelanggan")
+
+
+            Button:
+                text: 'Mutasi Kas\nLihat Mutasi Kas'
+                size_hint_y: None
+                height: 60
+                halign: 'center'
+                font_size: 16
+                background_color: .2, .6, .8, 1
+                background_normal: ''
+                on_release:root.manager.current=("mutasi")
+
+            Button:
+                text: 'Keluar Akun\nKeluar dari Akun'
+                size_hint_y: None
+                height: 60
+                halign: 'center'
+                font_size: 16
+                background_color: .2, .6, .8, 1
+                background_normal: ''
+                on_release: root.show_popup("info", "yakin logout?")
+                # Panggil fungsi login, yang di dalam kurung untuk memastikan bahwa username dan pw benar
+        Widget:
+            size_hint_y:0.3
+        # Tombol navigasi bawah
+        BoxLayout:
+            size_hint_y: None
+            height: 80
+            padding: 10
+
+            Button:
+                text: 'Pesanan'
+                background_color: .2, .6, .8, 1
+                background_normal: ''
+                on_press:root.manager.current=('antrian')
+
+            Button:
+                text: 'Menu'
+                background_color: .2, .6, .8, 1
+                background_normal: ''
+
+        #     Button:
+        #         text: "logout"
+        #         size_hint: None, None
+        #         height: 50
+        #         width: 217
+        #         background_normal: ''
+        #         background_color: "blue"  # Blue button color
+        #         pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+        #         on_release: root.show_popup("info", "yakin logout?")
+        #         # Panggil fungsi login, yang di dalam kurung untuk memastikan bahwa username dan pw benar
+        # Widget:
+        #     size_hint_y:0.3
+        # # Tombol navigasi bawah
+        # BoxLayout:
+        #     size_hint_y: None
+        #     height: 80
+        #     padding: 10
+
+        #     Button:
+        #         text: 'Pesanan'
+        #         background_color: .2, .6, .8, 1
+        #         background_normal: ''
+        #         on_press:root.manager.current=('antrian')
+
+        #     Button:
+        #         text: 'Menu'
+        #         background_color: .2, .6, .8, 1
+        #         background_normal: ''

@@ -1,0 +1,278 @@
+#:kivy 2.3.0
+<MutasiPage>:
+    name: 'mutasi'
+    BoxLayout:
+        orientation:'vertical'
+        BoxLayout:
+            orientation:'vertical'
+            size_hint: 1, 0.15
+            spacing: 10
+            BoxLayout:
+                size_hint: 1, 0.7
+                canvas.before:
+                    Color:
+                        rgba: 0.6, 0.8, 1, 1  # Blue background color
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                Button:
+                    text: "<"
+                    size_hint_x: 0.15
+                    background_color: 0.6, 0.8, 1, 1  # Makes the button blue
+                    color: 1, 1, 1, 1  # White text
+                    bold: True
+                    font_size: 15
+                    on_release: root.manager.current=('home')
+
+                Label:
+                    text: "MUTASI KAS"
+                    font_size: '20sp'
+                    bold: True
+                    color: 0, 0, 0, 1  # Black text color
+                    halign: 'center'
+                    valign: 'middle'
+                    size_hint_x: 1
+                    text_size: self.size
+                    
+            BoxLayout:
+                size_hint: 1, 0.3
+                spacing: 2
+
+                TextInput:
+                    id: search_input
+                    hint_text: "Cari Data"
+                    size_hint_x: 0.5
+                    multiline: False
+
+                Button:
+                    text: "+"
+                    size_hint_x: 0.15
+                    background_color: 0.6, 0.8, 1, 1  # Makes the button blue
+                    color: 1, 1, 1, 1  # White text
+                    bold: True
+                    font_size: 20
+                    canvas.before:
+                        Color:
+                            rgba: 0.6, 0.8, 1, 1   # Button background color (blue)
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [10]  # Rounded corners
+            # BoxLayout:
+            #     orientation:'vertical'
+            #     Label:
+            #         text: "Di urutkan dari atas ke bawah"
+            #         font_size: '20sp'
+            #         bold: True
+            #         color: 0, 0, 0, 1  # Black text color
+            #         halign: 'center'
+            #         valign: 'middle'
+            #         size_hint_x: 1
+            #         text_size: self.size
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, 0.8
+            ScrollView:
+                GridLayout:
+                    id: customer_list
+                    cols: 1
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: [10, 10]
+                    spacing: 10
+
+                    # Data 1
+                    BoxLayout:
+                        size_hint_y: None
+                        height: '80dp'
+                        spacing: 10
+                        padding: [10, 10]
+                        canvas.before:
+                            Color:
+                                rgba: 1, 1, 1, 1  # White background for each customer
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 0, 0, 0, 1  # Black border color
+                            Line:
+                                rectangle: (self.x, self.y, self.width, self.height)
+                                width: 1
+
+                        # Customer image (placeholder)
+                        Image:
+                            source: 'assets/uang_masuk.png'  # Change with actual image
+                            size_hint_x: None
+                            width: '50dp'
+
+                        # Customer details (name and phone number)
+                        BoxLayout:
+                            orientation: 'vertical'
+                            Label:
+                                text: '200.000'
+                                font_size: '18sp'
+                                color: 'green'
+                                # color: 0, 0, 0, 1  # Black text
+                                halign: 'left'
+                                valign: 'middle'
+                                text_size: self.size  # Makes the text align to the left
+                            Label:
+                                text: 'Deposit Tanggal 20'
+                                font_size: '14sp'
+                                color:  0, 0, 0, 1
+                                halign: 'left'
+                                valign: 'middle'
+                                text_size: self.size  # Makes the text align to the left
+
+                        # # Select button
+                        # Button:
+                        #     text: "EDIT"
+                        #     size_hint_x: None
+                        #     width: 60
+
+                    # Data 2
+                    BoxLayout:
+                        size_hint_y: None
+                        height: '80dp'
+                        spacing: 10
+                        padding: [10, 10]
+                        canvas.before:
+                            Color:
+                                rgba: 1, 1, 1, 1  # White background for each customer
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 0, 0, 0, 1  # Black border color
+                            Line:
+                                rectangle: (self.x, self.y, self.width, self.height)
+                                width: 1
+
+                        # Customer image (placeholder)
+                        Image:
+                            source: 'assets/uang_keluar.png'  # Change with actual image
+                            size_hint_x: None
+                            width: '50dp'
+
+                        # Customer details (name and phone number)
+                        BoxLayout:
+                            orientation: 'vertical'
+                            Label:
+                                text: '50.000'
+                                font_size: '18sp'
+                                color: 'red'
+                                halign: 'left'
+                                valign: 'middle'
+                                text_size: self.size  # Makes the text align to the left
+                            Label:
+                                text: 'Pembelian Sabun Mingguan'
+                                font_size: '14sp'
+                                color:  0, 0, 0, 1
+                                halign: 'left'
+                                valign: 'middle'
+                                text_size: self.size  # Makes the text align to the left
+
+                        # # Select button
+                        # Button:
+                        #     text: "EDIT"
+                        #     size_hint_x: None
+                        #     width: 60
+
+                    # Data 3
+                    BoxLayout:
+                        size_hint_y: None
+                        height: '80dp'
+                        spacing: 10
+                        padding: [10, 10]
+                        canvas.before:
+                            Color:
+                                rgba: 1, 1, 1, 1  # White background for each customer
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 0, 0, 0, 1  # Black border color
+                            Line:
+                                rectangle: (self.x, self.y, self.width, self.height)
+                                width: 1
+
+                        # Customer image (placeholder)
+                        Image:
+                            source: 'assets/uang_keluar.png'  # Change with actual image
+                            size_hint_x: None
+                            width: '50dp'
+
+                        # Customer details (name and phone number)
+                        BoxLayout:
+                            orientation: 'vertical'
+                            Label:
+                                text: '200.000'
+                                font_size: '18sp'
+                                color: 'red'
+                                # color: 0, 0, 0, 1  # Black text
+                                halign: 'left'
+                                valign: 'middle'
+                                text_size: self.size  # Makes the text align to the left
+                            Label:
+                                text: 'Pembelian Plastik'
+                                font_size: '14sp'
+                                color:  0, 0, 0, 1
+                                halign: 'left'
+                                valign: 'middle'
+                                text_size: self.size  # Makes the text align to the left
+
+                        # # Select button
+                        # Button:
+                        #     text: "EDIT"
+                        #     size_hint_x: None
+                        #     width: 60
+
+                    # Data 4
+                    BoxLayout:
+                        size_hint_y: None
+                        height: '80dp'
+                        spacing: 10
+                        padding: [10, 10]
+                        canvas.before:
+                            Color:
+                                rgba: 1, 1, 1, 1  # White background for each customer
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 0, 0, 0, 1  # Black border color
+                            Line:
+                                rectangle: (self.x, self.y, self.width, self.height)
+                                width: 1
+
+                        # Customer image (placeholder)
+                        Image:
+                            source: 'assets/uang_masuk.png'  # Change with actual image
+                            size_hint_x: None
+                            width: '50dp'
+
+                        # Customer details (name and phone number)
+                        BoxLayout:
+                            orientation: 'vertical'
+                            Label:
+                                text: '300.000'
+                                font_size: '18sp'
+                                color: 'green'
+                                halign: 'left'
+                                valign: 'middle'
+                                text_size: self.size  # Makes the text align to the left
+                            Label:
+                                text: 'Deposit Tanggal 25'
+                                font_size: '14sp'
+                                color:  0, 0, 0, 1
+                                halign: 'left'
+                                valign: 'middle'
+                                text_size: self.size  # Makes the text align to the left
+
+                        # # Select button
+                        # Button:
+                        #     text: "EDIT"
+                        #     size_hint_x: None
+                        #     width: 60
