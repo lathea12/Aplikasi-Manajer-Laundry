@@ -1,233 +1,51 @@
 #:kivy 2.3.0
-<TambahPelangganPage>:
-    name: 'tambah_pelanggan'
+<AddPelanggan>:
+    name_input: name_input
+    nomer_input: nomer_input
+    alamat_input: alamat_input
+    
     BoxLayout:
-        orientation:'vertical'
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        
+        Label:
+            text: 'Tambah pelanggan Baru'
+            size_hint_y: None
+            height: 50
+            font_size: 24
+        
+        TextInput:
+            id: name_input
+            hint_text: 'Nama'
+            size_hint_y: None
+            height: 40
+            multiline: False
+        
+        TextInput:
+            id: nomer_input
+            hint_text: 'Nomer'
+            size_hint_y: None
+            height: 40
+            multiline: False
+            input_filter: 'int'
+        
+        TextInput:
+            id: alamat_input
+            hint_text: 'Alamat'
+            size_hint_y: None
+            height: 40
+            multiline: False
+        
         BoxLayout:
-            orientation:'vertical'
-            size_hint: 1, 0.15
+            size_hint_y: None
+            height: 50
             spacing: 10
-            BoxLayout:
-                size_hint: 1, 0.7
-                canvas.before:
-                    Color:
-                        rgba: 0.6, 0.8, 1, 1  # Blue background color
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                Label:
-                    text: "TAMBAH PELANGGAN"
-                    font_size: '20sp'
-                    bold: True
-                    color: 0, 0, 0, 1  # Black text color
-                    halign: 'center'
-                    valign: 'middle'
-                    size_hint_x: 1
-                    text_size: self.size
-            BoxLayout:
-                size_hint: 1, 0.3
-                spacing: 10
-   
-        BoxLayout:
-            orientation: 'vertical'
-            size_hint: 1, 0.8
-            ScrollView:
-                GridLayout:
-                    id: customer_list
-                    cols: 1
-                    size_hint_y: None
-                    height: self.minimum_height
-                    padding: [10, 10]
-                    spacing: 10
-
-                    # Customer 1
-                    BoxLayout:
-                        size_hint_y: None
-                        height: '80dp'
-                        spacing: 10
-                        padding: [10, 10]
-                        canvas.before:
-                            Color:
-                                rgba: 1, 1, 1, 1  # White background for each customer
-                            Rectangle:
-                                pos: self.pos
-                                size: self.size
-                            Color:
-                                rgba: 0, 0, 0, 1  # Black border color
-                            Line:
-                                rectangle: (self.x, self.y, self.width, self.height)
-                                width: 1
-
-                        # Customer image (placeholder)
-                        Image:
-                            source: 'assets/customer_icon.png'  # Change with actual image
-                            size_hint_x: None
-                            width: '50dp'
-
-                        # Customer details (name and phone number)
-                        BoxLayout:
-                            orientation: 'vertical'
-                            Label:
-                                text: 'Tari Alok'
-                                font_size: '18sp'
-                                color: 0, 0, 0, 1  # Black text
-                                halign: 'left'
-                                valign: 'middle'
-                                text_size: self.size  # Makes the text align to the left
-                            Label:
-                                text: 'No Telepon: 083128566649'
-                                font_size: '14sp'
-                                color: 0.5, 0.5, 0.5, 1  # Grey text
-                                halign: 'left'
-                                valign: 'middle'
-                                text_size: self.size  # Makes the text align to the left
-
-                        # Select button
-                        Button:
-                            text: "Pilih"
-                            size_hint_x: None
-                            width: 60
-
-                    # Customer 2
-                    BoxLayout:
-                        size_hint_y: None
-                        height: '80dp'
-                        spacing: 10
-                        padding: [10, 10]
-                        canvas.before:
-                            Color:
-                                rgba: 1, 1, 1, 1  # White background for each customer
-                            Rectangle:
-                                pos: self.pos
-                                size: self.size
-                            Color:
-                                rgba: 0, 0, 0, 1  # Black border color
-                            Line:
-                                rectangle: (self.x, self.y, self.width, self.height)
-                                width: 1
-
-                        # Customer image (placeholder)
-                        Image:
-                            source: 'assets/customer_icon.png'  # Change with actual image
-                            size_hint_x: None
-                            width: '50dp'
-
-                        # Customer details (name and phone number)
-                        BoxLayout:
-                            orientation: 'vertical'
-                            Label:
-                                text: 'Fadly'
-                                font_size: '18sp'
-                                color: 0, 0, 0, 1  # Black text
-                                halign: 'left'
-                                valign: 'middle'
-                                text_size: self.size  # Makes the text align to the left
-                            Label:
-                                text: 'No Telepon: 083128566649'
-                                font_size: '14sp'
-                                color: 0.5, 0.5, 0.5, 1  # Grey text
-                                halign: 'left'
-                                valign: 'middle'
-                                text_size: self.size  # Makes the text align to the left
-
-                        # Select button
-                        Button:
-                            text: "Pilih"
-                            size_hint_x: None
-                            width: 60
-
-                    # Customer 3
-                    BoxLayout:
-                        size_hint_y: None
-                        height: '80dp'
-                        spacing: 10
-                        padding: [10, 10]
-                        canvas.before:
-                            Color:
-                                rgba: 1, 1, 1, 1  # White background for each customer
-                            Rectangle:
-                                pos: self.pos
-                                size: self.size
-                            Color:
-                                rgba: 0, 0, 0, 1  # Black border color
-                            Line:
-                                rectangle: (self.x, self.y, self.width, self.height)
-                                width: 1
-
-                        # Customer image (placeholder)
-                        Image:
-                            source: 'assets/customer_icon.png'  # Change with actual image
-                            size_hint_x: None
-                            width: '50dp'
-
-                        # Customer details (name and phone number)
-                        BoxLayout:
-                            orientation: 'vertical'
-                            Label:
-                                text: 'Rifa'
-                                font_size: '18sp'
-                                color: 0, 0, 0, 1  # Black text
-                                halign: 'left'
-                                valign: 'middle'
-                                text_size: self.size  # Makes the text align to the left
-                            Label:
-                                text: 'No Telepon: 083128566649'
-                                font_size: '14sp'
-                                color: 0.5, 0.5, 0.5, 1  # Grey text
-                                halign: 'left'
-                                valign: 'middle'
-                                text_size: self.size  # Makes the text align to the left
-
-                        # Select button
-                        Button:
-                            text: "Pilih"
-                            size_hint_x: None
-                            width: 60
-
-                    # Customer 4
-                    BoxLayout:
-                        size_hint_y: None
-                        height: '80dp'
-                        spacing: 10
-                        padding: [10, 10]
-                        canvas.before:
-                            Color:
-                                rgba: 1, 1, 1, 1  # White background for each customer
-                            Rectangle:
-                                pos: self.pos
-                                size: self.size
-                            Color:
-                                rgba: 0, 0, 0, 1  # Black border color
-                            Line:
-                                rectangle: (self.x, self.y, self.width, self.height)
-                                width: 1
-
-                        # Customer image (placeholder)
-                        Image:
-                            source: 'assets/customer_icon.png'  # Change with actual image
-                            size_hint_x: None
-                            width: '50dp'
-
-                        # Customer details (name and phone number)
-                        BoxLayout:
-                            orientation: 'vertical'
-                            Label:
-                                text: 'Rafi'
-                                font_size: '18sp'
-                                color: 0, 0, 0, 1  # Black text
-                                halign: 'left'
-                                valign: 'middle'
-                                text_size: self.size  # Makes the text align to the left
-                            Label:
-                                text: 'No Telepon: 083128566649'
-                                font_size: '14sp'
-                                color: 0.5, 0.5, 0.5, 1  # Grey text
-                                halign: 'left'
-                                valign: 'middle'
-                                text_size: self.size  # Makes the text align to the left
-
-                        # Select button
-                        Button:
-                            text: "Pilih"
-                            size_hint_x: None
-                            width: 60
+            
+            Button:
+                text: 'Batal'
+                on_press: root.cancel()
+            
+            Button:
+                text: 'Tambah'
+                on_press: root.add_pelanggan()

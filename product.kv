@@ -1,5 +1,6 @@
 #:kivy 2.3.0
-<DataPelanggan>:
+<ProductList>:
+    name: 'listproduk'
     container: container
     BoxLayout:
         orientation: 'vertical'
@@ -7,19 +8,11 @@
         spacing: 10
         
         Label:
-            text: 'DAFTAR PELANGGAN'
+            text: 'Daftar Produk'
             size_hint_y: None
-            bold: True
             height: 50
             font_size: 24
-            color: (1, 1, 1, 1)  # Warna putih tidak transparan
-            canvas.before:
-                Color:
-                    rgba: .1, .4, .6, 1
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-            
+            color: (0, 0, 0, 1)  # Warna hitam
 
         
         ScrollView:
@@ -29,18 +22,17 @@
                 spacing: 10
                 size_hint_y: None
                 height: self.minimum_height
-                
         
         Button:
-            text: 'Tambah Pelanggan'
+            text: 'Tambah Produk'
             size_hint_y: None
             height: 50
-            on_press: root.show_add_pelanggan()
+            on_press: root.show_add_product()
 
-<AddPelanggan>:
+<AddProduct>:
     name_input: name_input
-    nomer_input: nomer_input
-    alamat_input: alamat_input
+    price_input: price_input
+    stock_input: stock_input
     
     BoxLayout:
         orientation: 'vertical'
@@ -48,32 +40,33 @@
         spacing: 10
         
         Label:
-            text: 'Tambah Pelanggan Baru'
+            text: 'Tambah Produk Baru'
             size_hint_y: None
             height: 50
             font_size: 24
         
         TextInput:
             id: name_input
-            hint_text: 'Nama'
+            hint_text: 'Nama Produk'
             size_hint_y: None
             height: 40
             multiline: False
         
         TextInput:
-            id: nomer_input
-            hint_text: 'Nomer'
+            id: price_input
+            hint_text: 'Harga'
+            size_hint_y: None
+            height: 40
+            multiline: False
+            input_filter: 'float'
+        
+        TextInput:
+            id: stock_input
+            hint_text: 'Stok'
             size_hint_y: None
             height: 40
             multiline: False
             input_filter: 'int'
-        
-        TextInput:
-            id: alamat_input
-            hint_text: 'Alamat'
-            size_hint_y: None
-            height: 40
-            multiline: False
         
         BoxLayout:
             size_hint_y: None
@@ -86,12 +79,12 @@
             
             Button:
                 text: 'Tambah'
-                on_press: root.add_pelanggan()
+                on_press: root.add_product()
 
-<EditPelanggan>:
+<EditProduct>:
     name_input: name_input
-    nomer_input: nomer_input
-    alamat_input: alamat_input
+    price_input: price_input
+    stock_input: stock_input
     
     BoxLayout:
         orientation: 'vertical'
@@ -99,32 +92,33 @@
         spacing: 10
         
         Label:
-            text: 'Edit Pelanggan'
+            text: 'Edit Produk'
             size_hint_y: None
             height: 50
             font_size: 24
         
         TextInput:
             id: name_input
-            hint_text: 'Nama'
+            hint_text: 'Nama Produk'
             size_hint_y: None
             height: 40
             multiline: False
         
         TextInput:
-            id: nomer_input
-            hint_text: 'Nomer'
+            id: price_input
+            hint_text: 'Harga'
+            size_hint_y: None
+            height: 40
+            multiline: False
+            input_filter: 'float'
+        
+        TextInput:
+            id: stock_input
+            hint_text: 'Stok'
             size_hint_y: None
             height: 40
             multiline: False
             input_filter: 'int'
-        
-        TextInput:
-            id: alamat_input
-            hint_text: 'Alamat'
-            size_hint_y: None
-            height: 40
-            multiline: False
         
         BoxLayout:
             size_hint_y: None
@@ -137,4 +131,4 @@
             
             Button:
                 text: 'Update'
-                on_press: root.update_pelanggan()
+                on_press: root.update_product()
