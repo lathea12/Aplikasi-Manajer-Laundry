@@ -1,6 +1,5 @@
 #:kivy 2.3.0
-<DaftarPage>:
-    name:'daftar'
+<RegisterPage>:
     BoxLayout:
         orientation: 'vertical'
 
@@ -41,7 +40,7 @@
                 pos_hint: {'center_x': 0.5}
 
                 Label:
-                    text: "Selamat Datang\nSenang Melihat Anda Kembali!"
+                    text: "Selamat Datang\n Silahkan Buat Akun Anda"
                     font_size: "30"
                     halign: "center"
                     color: "black"
@@ -60,8 +59,8 @@
                 spacing: 10
                 
                 TextInput:
-                    id: username
-                    hint_text: "Username"
+                    id: register_email
+                    hint_text: "Masukkan Email Anda"
                     height: 40
                     size_hint_y: None
                     multiline: False
@@ -69,10 +68,16 @@
                     padding: [10, 10]
                     background_normal: ''
                     background_color: "white"  # Change to white for better visibility
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 1  # Warna border (hitam)
+                        Line:
+                            width: 1.5  # Ketebalan border
+                            rectangle: (self.x, self.y, self.width, self.height)  # Menggambar border sesuai ukuran TextInput
     
                 TextInput:
-                    id: password
-                    hint_text: "Password"
+                    id: register_password
+                    hint_text: "Masukkan Password Anda"
                     height: 40
                     size_hint_y: None
                     multiline: False
@@ -81,7 +86,13 @@
                     password: True  # Enable password masking
                     background_normal: ''
                     background_color: "white"
-        
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 1  # Warna border (hitam)
+                        Line:
+                            width: 1.5  # Ketebalan border
+                            rectangle: (self.x, self.y, self.width, self.height)  # Menggambar border sesuai ukuran TextInput
+
                 # Tombol Login
                 Button:
                     text: "Daftar"
@@ -90,8 +101,16 @@
                     width: 217
                     background_normal: ''
                     background_color: "blue"  # Blue button color
-                    pos_hint: {'center_x': 0.5, 'center_y': 0.2}
-                    on_release:
-                        root.login(username.text, password.text)  # Panggil fungsi login
-            Widget:
-                size_hint_y: 0.1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+                    on_release: root.register(register_email.text, register_password.text)
+                    # Panggil fungsi login, yang di dalam kurung untuk memastikan bahwa username dan pw benar
+
+                Button:
+                    text: "Login"
+                    size_hint: None, None
+                    height: 50
+                    width: 217
+                    background_normal: ''
+                    background_color: "blue"  # Blue button color
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.05}
+                    on_release: app.root.current = 'login'

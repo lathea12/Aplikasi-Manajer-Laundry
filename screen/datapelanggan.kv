@@ -5,28 +5,46 @@
         orientation: 'vertical'
         padding: 10
         spacing: 10
+        BoxLayout:
+            orientation:'vertical'
+            size_hint: 1, 0.15
+            spacing: 10
+            BoxLayout:
+                size_hint: 1, 0.7
+                canvas.before:
+                    Color:
+                        rgba: 0.6, 0.8, 1, 1  # Blue background color
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
         
-        Label:
-            text: 'DAFTAR PELANGGAN'
-            size_hint_y: None
-            bold: True
-            height: 50
-            font_size: 24
-            color: (1, 1, 1, 1)  # Warna putih tidak transparan
-            canvas.before:
-                Color:
-                    rgba: .1, .4, .6, 1
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
+                Button:
+                    text: "<"
+                    size_hint_x: 0.15
+                    background_color: 0.6, 0.8, 1, 1  # Makes the button blue
+                    color: 1, 1, 1, 1  # White text
+                    bold: True
+                    font_size: 15
+                    on_release: root.manager.current=('home')
+                
+                
+                Label:
+                    text: "DATA PELANGGAN"
+                    font_size: '20sp'
+                    bold: True
+                    color: 0, 0, 0, 1  # Black text color
+                    halign: 'center'
+                    valign: 'middle'
+                    size_hint_x: 1
+                    text_size: self.size
             
 
         
         ScrollView:
             GridLayout:
-                id: container
+                id: container 
                 cols: 1
-                spacing: 10
+                spacing: 20 #memberikan jarak antara data
                 size_hint_y: None
                 height: self.minimum_height
                 
@@ -35,106 +53,6 @@
             text: 'Tambah Pelanggan'
             size_hint_y: None
             height: 50
+            background_color: .2, .6, .8, 1
+            background_normal: ''
             on_press: root.show_add_pelanggan()
-
-<AddPelanggan>:
-    name_input: name_input
-    nomer_input: nomer_input
-    alamat_input: alamat_input
-    
-    BoxLayout:
-        orientation: 'vertical'
-        padding: 10
-        spacing: 10
-        
-        Label:
-            text: 'Tambah Pelanggan Baru'
-            size_hint_y: None
-            height: 50
-            font_size: 24
-        
-        TextInput:
-            id: name_input
-            hint_text: 'Nama'
-            size_hint_y: None
-            height: 40
-            multiline: False
-        
-        TextInput:
-            id: nomer_input
-            hint_text: 'Nomer'
-            size_hint_y: None
-            height: 40
-            multiline: False
-            input_filter: 'int'
-        
-        TextInput:
-            id: alamat_input
-            hint_text: 'Alamat'
-            size_hint_y: None
-            height: 40
-            multiline: False
-        
-        BoxLayout:
-            size_hint_y: None
-            height: 50
-            spacing: 10
-            
-            Button:
-                text: 'Batal'
-                on_press: root.cancel()
-            
-            Button:
-                text: 'Tambah'
-                on_press: root.add_pelanggan()
-
-<EditPelanggan>:
-    name_input: name_input
-    nomer_input: nomer_input
-    alamat_input: alamat_input
-    
-    BoxLayout:
-        orientation: 'vertical'
-        padding: 10
-        spacing: 10
-        
-        Label:
-            text: 'Edit Pelanggan'
-            size_hint_y: None
-            height: 50
-            font_size: 24
-        
-        TextInput:
-            id: name_input
-            hint_text: 'Nama'
-            size_hint_y: None
-            height: 40
-            multiline: False
-        
-        TextInput:
-            id: nomer_input
-            hint_text: 'Nomer'
-            size_hint_y: None
-            height: 40
-            multiline: False
-            input_filter: 'int'
-        
-        TextInput:
-            id: alamat_input
-            hint_text: 'Alamat'
-            size_hint_y: None
-            height: 40
-            multiline: False
-        
-        BoxLayout:
-            size_hint_y: None
-            height: 50
-            spacing: 10
-            
-            Button:
-                text: 'Batal'
-                on_press: root.cancel()
-            
-            Button:
-                text: 'Update'
-                on_press: root.update_pelanggan()

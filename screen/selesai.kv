@@ -42,6 +42,7 @@
                     color: 1, 1, 1, 1  # White text
                     bold: True
                     font_size: 20
+                    on_press:root.manager.current=('add_pesanan')
                     canvas.before:
                         Color:
                             rgba: 0.6, 0.8, 1, 1   # Button background color (blue)
@@ -49,6 +50,7 @@
                             pos: self.pos
                             size: self.size
                             radius: [10]  # Rounded corners
+                            
    
         BoxLayout:
             orientation: 'vertical'

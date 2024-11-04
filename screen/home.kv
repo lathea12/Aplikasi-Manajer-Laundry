@@ -22,7 +22,7 @@
             Image:
                 source: 'assets/machine.png'
                 size_hint_x: None
-                width: 30
+                width: 65  # Ubah nilai ini sesuai kebutuhan
 
             GridLayout:
                 cols: 1
@@ -33,11 +33,12 @@
                     color: 1, 1, 1, 1  # White text
                 Label:
                     text: 'Serengan'
-                    font_size: 16
+                    font_size: 18
+                    bold: True
                     color: 1, 1, 1, 1  # White text
                 Label:
                     text: '085156846935'
-                    font_size: 16
+                    font_size: 18
                     color: 1, 1, 1, 1  # White text
 
         # Informasi kas masuk dan keluar
@@ -80,16 +81,7 @@
                 background_color: .2, .6, .8, 1
                 background_normal: ''
                 on_release:root.manager.current=("add_pesanan")
-            
-            # Button:
-            #     text: 'Cari Pesanan\nPencarian Pesanan'
-            #     size_hint_y: None
-            #     height: 60
-            #     halign: 'center'
-            #     font_size: 16
-            #     background_color: .2, .6, .8, 1
-            #     background_normal: ''
-            #     on_release:root.manager.current=("addpesanan")
+
 
             Button:
                 text: 'Data Pelanggan\nKelola Data Pelanggan'
@@ -111,6 +103,16 @@
                 background_color: .2, .6, .8, 1
                 background_normal: ''
                 on_release:root.manager.current=("mutasi")
+
+            Button:
+                text: 'Manager Laundry\nBuat Setting Harga'
+                size_hint_y: None
+                height: 60
+                halign: 'center'
+                font_size: 16
+                background_color: .2, .6, .8, 1
+                background_normal: ''
+                on_release:root.manager.current=("antrian")   
 
             Button:
                 text: 'Keluar Akun\nKeluar dari Akun'

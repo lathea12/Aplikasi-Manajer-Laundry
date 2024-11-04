@@ -42,10 +42,10 @@ class Pelanggan(BoxLayout):
         # Button layout
         button_layout = BoxLayout(orientation='vertical', size_hint_x=0.3, spacing=5)
         
-        edit_btn = Button(text='EDIT', size_hint_y=0.5, background_color=(0.2, 0.6, 0.8, 1))
+        edit_btn = Button(text='EDIT', size_hint_y=0.5, background_color=(0.2, 0.6, 0.8, 1), background_normal='')
         edit_btn.bind(on_press=lambda x: edit_callback(pelanggan_id, pelanggan_data))
         
-        delete_btn = Button(text='HAPUS', size_hint_y=0.5, background_color=(0.9, 0.3, 0.3, 1))
+        delete_btn = Button(text='HAPUS', size_hint_y=0.5, background_color=(0.9, 0.3, 0.3, 1), background_normal='')
         delete_btn.bind(on_press=lambda x: delete_callback(pelanggan_id))
 
         button_layout.add_widget(edit_btn)
