@@ -13,7 +13,7 @@ from app.rincian import RincianPage
 from app.popup import MyPopup
 from app.mutasi import MutasiPage
 from app.datapelanggan import DataPelanggan
-from app.manager import ManagerPage
+from app.manager import ProductList, EditProduct, AddProduct
 from app.addpesanan import AddPesanan
 from app.editpelanggan import EditPelanggan
 from app.addpelanggan import AddPelanggan
@@ -55,7 +55,9 @@ class MyApp(App):
         sm.add_widget(RincianPage(name='rincian'))
         sm.add_widget(MyPopup(name='popup'))
         sm.add_widget(MutasiPage(name='mutasi'))
-        sm.add_widget(ManagerPage(name='manager'))
+        sm.add_widget(ProductList(name='product_list'))
+        sm.add_widget(AddProduct(name='add_product'))
+        sm.add_widget(EditProduct(name='edit_product'))
         
         return sm
 
