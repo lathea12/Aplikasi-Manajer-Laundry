@@ -66,9 +66,3 @@ if __name__ == '__main__':
     Window.size = (360, 640)
     Window.clearcolor = (1, 1, 1, 1)
     MyApp().run()
-    
-# if __name__ == '__main__':
-#     Window.size = (360, 640)
-#     Window.clearcolor = (1, 1, 1, 1)
-#     Builder.load_file("style.kv")
-#     MainApp().run()
