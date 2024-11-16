@@ -5,27 +5,53 @@
         orientation: 'vertical'
         padding: 10
         spacing: 10
-        
-        Label:
-            text: 'Daftar Produk'
-            size_hint_y: None
-            height: 50
-            font_size: 24
+        BoxLayout:
+            orientation:'vertical'
+            size_hint: 1, 0.15
+            spacing: 10
+            BoxLayout:
+                size_hint: 1, 0.7
+                canvas.before:
+                    Color:
+                        rgba: 0.6, 0.8, 1, 1  # Blue background color
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Button:
+                    text: "<"
+                    size_hint_x: 0.15
+                    background_color: 0.6, 0.8, 1, 1  # Makes the button blue
+                    color: 1, 1, 1, 1  # White text
+                    bold: True
+                    font_size: 15
+                    on_release: root.manager.current=('home')
+
+                Label:
+                    text: "MANAGER LAUNDRY"
+                    font_size: '20sp'
+                    bold: True
+                    color: 0, 0, 0, 1  # Black text color
+                    halign: 'center'
+                    valign: 'middle'
+                    size_hint_x: 1
+                    text_size: self.size
+
         
         ScrollView:
             GridLayout:
-                id: container
+                id: container 
                 cols: 1
-                spacing: 10
+                spacing: 20 #memberikan jarak antara data
                 size_hint_y: None
                 height: self.minimum_height
-        
+
         Button:
-            text: 'Tambah Produk'
+            text: 'Tambah Paket'
             size_hint_y: None
             height: 50
+            background_color: .2, .6, .8, 1
+            background_normal: ''
             on_press: root.show_add_product()
-
 <AddProduct>:
     name_input: name_input
     price_input: price_input

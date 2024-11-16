@@ -42,7 +42,12 @@ class Pelanggan(BoxLayout):
         # Button layout
         button_layout = BoxLayout(orientation='vertical', size_hint_x=0.3, spacing=5)
         
-        pilih_btn = Button(text='PILIH', size_hint_y=0.5, background_color=(0.2, 0.6, 0.8, 1), background_normal='')
+        pilih_btn = Button(
+            text='PILIH',
+            size_hint_y=0.5,
+            background_color=(0.2, 0.6, 0.8, 1),
+            background_normal='',
+        )
         pilih_btn.bind(on_press=lambda x: pilih_callback())
 
         button_layout.add_widget(pilih_btn)
@@ -81,4 +86,82 @@ class AddPesanan(Screen):
         self.manager.current = 'add_pelanggan'
 
     def pilih_pelanggan(self):
-        self.manager.current = 'ambil'
+        self.manager.current = 'daftar_paket'
+
+class ProductItem(BoxLayout):
+    def __init__(self, product_id, product_data, pilih_callback, **kwargs):
+        super().__init__(**kwargs)
+        self.orientation = 'horizontal'
+        self.size_hint_y = None
+        self.height = 120
+        self.padding = 5
+        self.spacing = 10
+
+        # Save product id and data
+        self.product_id = product_id
+        self.product_data = product_data
+
+        # Create info layout
+        info_layout = BoxLayout(orientation='vertical', size_hint_x=0.7)
+        
+        # Product info label
+        name = product_data.get('nama', 'No Name')
+        price = product_data.get('harga', 0)
+        stock = product_data.get('stok', 0)
+        
+        info_label = Label(
+            text=f"Nama: {name}\nHarga: Rp {price:,.0f}\nStok: {stock}",
+            size_hint_y=None,
+            height=100,
+            halign='left',
+            valign='middle',
+            color=(0, 0, 0, 1)  # Warna teks hitam
+        )
+        info_label.bind(size=info_label.setter('text_size'))
+        info_layout.add_widget(info_label)
+
+        # Button layout
+        button_layout = BoxLayout(orientation='vertical', size_hint_x=0.3, spacing=5)
+        
+        pilih_btn = Button(
+            text='PILIH',
+            size_hint_y=0.5,
+            background_color=(0.2, 0.6, 0.8, 1),
+            background_normal=''
+        )
+        pilih_btn.bind(on_press=lambda x: pilih_callback())
+        button_layout.add_widget(pilih_btn)
+
+        # Add layouts to main layout
+        self.add_widget(info_layout)
+        self.add_widget(button_layout)
+        
+class Daftar_Paket(Screen):
+    container = ObjectProperty(None)
+    
+    def on_enter(self):
+        self.load_products()
+
+    def load_products(self):
+        self.container.clear_widgets()
+        products = Database.get_all_products()
+        print(products)  # Tambahkan ini untuk memeriksa data produk
+        
+        if products:
+            for product_id, product_data in products:
+                product_item = ProductItem(
+                    product_id,
+                    product_data,
+                    self.pilih_paket
+                )
+                self.container.add_widget(product_item)
+        else:
+            self.container.add_widget(
+                Label(
+                    text="Tidak ada produk tersedia",
+                    size_hint_y=None,
+                    height=100
+                )
+            )
+    def pilih_paket(self):
+        self.manager.current = 'antrian'

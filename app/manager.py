@@ -46,7 +46,8 @@ class ProductItem(BoxLayout):
         edit_btn = Button(
             text='Edit',
             size_hint_y=0.5,
-            background_color=(0.3, 0.5, 0.9, 1)
+            background_color=(0.2, 0.6, 0.8, 1,),
+            background_normal='',
         )
         edit_btn.bind(on_press=lambda x: edit_callback(product_id, product_data))
         
@@ -54,7 +55,8 @@ class ProductItem(BoxLayout):
         delete_btn = Button(
             text='Hapus',
             size_hint_y=0.5,
-            background_color=(0.9, 0.3, 0.3, 1)
+            background_color=(0.9, 0.3, 0.3, 1),
+            background_normal=''
         )
         delete_btn.bind(on_press=lambda x: delete_callback(product_id))
 

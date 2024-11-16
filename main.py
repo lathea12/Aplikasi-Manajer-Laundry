@@ -14,7 +14,7 @@ from app.popup import MyPopup
 from app.mutasi import MutasiPage
 from app.datapelanggan import DataPelanggan
 from app.manager import ProductList, EditProduct, AddProduct
-from app.addpesanan import AddPesanan
+from app.addpesanan import AddPesanan, Daftar_Paket
 from app.editpelanggan import EditPelanggan
 from app.addpelanggan import AddPelanggan
 from auth import AuthService
@@ -42,8 +42,8 @@ class MyApp(App):
         # Builder.load_file('auth.kv')
         
         sm = MyScreenManager()
-        sm.add_widget(HomePage(name='home'))
         sm.add_widget(LoginPage(name='login'))
+        sm.add_widget(HomePage(name='home'))
         sm.add_widget(DataPelanggan(name='data_pelanggan'))
         sm.add_widget(EditPelanggan(name='edit_pelanggan'))
         sm.add_widget(AddPelanggan(name='add_pelanggan'))
@@ -58,6 +58,7 @@ class MyApp(App):
         sm.add_widget(ProductList(name='product_list'))
         sm.add_widget(AddProduct(name='add_product'))
         sm.add_widget(EditProduct(name='edit_product'))
+        sm.add_widget(Daftar_Paket(name='daftar_paket'))
         
         return sm
 
